@@ -9,11 +9,12 @@
 names = ['left-bicep', 'right-bicep', 'waist', 
         'hips', 'left-thigh', 'right-thigh']
 
-iter = 0
-30.times do |i|
-  iter = 0 if iter >= 5
-  measurement = Measurement.create!(name: names[iter])
-  measure = Measure.create!(data: rand(11.2...76.9), measurement: measurement)
-  iter += 1
-  puts "#{i} created!"
+names.each do |name|
+  measurement = Measurement.create!(name: name)
+  10.times do |i|
+    Measure.create!(data: rand(11.2...76.9).round(2), measurement: measurement)
+    puts "#{i+1} created"
+  end
+
+  puts "#{name} created!"
 end
