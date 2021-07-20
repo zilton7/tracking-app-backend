@@ -9,15 +9,13 @@ module Api
       end
 
       def show
-        @measurement = Measurement.find(measurement_params)
+        @measurement = Measurement.find(params[:id])
         @measures = Measure.where(measurement: @measurement)
 
         render json: @measurement.to_json(include: {:measures => {only: [:data, :created_at]}})
       end
 
       def create
-        p "measurement_params"
-        p measurement_params
         measurement = Measurement.find(measurement_params['id'])
         measure = Measure.new(measure_params.merge(measurement_id: measurement.id))
         
