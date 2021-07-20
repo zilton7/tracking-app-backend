@@ -6,15 +6,22 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-names = ['left-bicep', 'right-bicep', 'waist', 
-        'hips', 'left-thigh', 'right-thigh']
+names = ['Left Bicep', 'Right Bicep', 'Waist', 
+        'Hips', 'Left Thigh', 'Right Thigh']
 
-names.each do |name|
-  measurement = Measurement.create!(name: name)
-  10.times do |i|
+images = ['https://i.ibb.co/cXWZ575/bicep-left.png',
+        'https://i.ibb.co/y05nys2/bicep-right.png',
+        'https://i.ibb.co/c1qCHH5/waist.png',
+        'https://i.ibb.co/BV6gkc3/hip.png',
+        'https://i.ibb.co/0YCggXV/leg-left.png',
+        'https://i.ibb.co/RjkyrPx/leg-right.png']
+
+names.length.times do |i|
+  measurement = Measurement.create!(name: names[i], image: images[i] )
+  10.times do |j|
     Measure.create!(data: rand(11.2...76.9).round(2), measurement: measurement)
-    puts "#{i+1} created"
+    puts "#{j+1} created"
   end
 
-  puts "#{name} created!"
+  puts "#{names[i]} created!"
 end
