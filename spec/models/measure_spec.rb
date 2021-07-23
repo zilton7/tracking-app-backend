@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Measure, type: :model do
-  measurement = Measurement.create!(name:'Test', image:'http://placehold.it/500x500')
+  measurement = Measurement.create!(name: 'Test', image: 'http://placehold.it/500x500')
 
   it 'has a data' do
     measure = Measure.new(data: 'whatever', measurement: measurement)

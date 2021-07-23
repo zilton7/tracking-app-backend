@@ -40,7 +40,6 @@ end
 group :test do
   gem 'capybara', '>= 3.26'
   gem 'shoulda-matchers', '~> 4.5', '>= 4.5.1'
-
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
